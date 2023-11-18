@@ -17,9 +17,10 @@ const userSchema = new Schema({
         require: true,
         unique: true
     },
+    password: String,
     gender: {
         type: String,
-        index:true,
+        
     }
 })
 

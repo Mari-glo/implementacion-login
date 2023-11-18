@@ -4,6 +4,8 @@ const routerServer = require('./routes')
 const { connectDb } = require('./config/config')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
+const FileStore = require ('session-file-store')
+const MongoStore = require('connect-mongo')
 
 const { Server: HTTPServer } = require('http')
 const { Server: IOServer } = require('socket.io')
@@ -24,6 +26,35 @@ app.use(session({
     saveUninitialized: true
 
 }))
+
+// const fileStore = FileStore(session)
+// app.use(session({
+//      store: new fileStore({
+//          path: __dirname+'/sessions',
+//          ttl: 10000,
+//          retries:0
+//      }),
+//      secret: '6274',
+//      resave: true,
+//      saveUninitialized: true
+
+//  }))
+
+ app.use (session({
+     store: MongoStore.create({
+         mongoUrl:"mongodb+srv://mariD:NOTpwuJtPwyuWFeU@cluster0.nn1ed1f.mongodb.net/ecommerce_mari?retryWrites=true&w=majority",
+         mongoOptions: {   
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        },
+         ttl: 150000
+
+     }),
+     secret: '6274',
+     resave: true,
+     saveUninitialized: true
+
+ }))
 
 
 app.engine('hbs', handlebars.engine({

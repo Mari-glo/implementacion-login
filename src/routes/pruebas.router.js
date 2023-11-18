@@ -41,15 +41,16 @@ router.get('/session', (req, res) =>{
     }
 })
 
-router.post('/login', (req,res) =>{
-    const {email, pass} = req.body
-    if (email !== "adminCoder@coder.com" || pass !== "adminCod3r123"){
-        return res.send('login fallado')
+router.post('/login', (req,res) => {
+    const {email, password} = req.body
+    
+    if (email !== 'adminCoder@coder.com' || password !== 'adminCod3r123') {
+        return res.send('login fallido')
     }
-    req.session.user = email
+    
+    req.session.user = email 
     req.session.admin = true
-    res.send ('login exitoso')
-
+    res.send('login exitoso')
 })
 
 router.get('/logout', (req,res)=>{

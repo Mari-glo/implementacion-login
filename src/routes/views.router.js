@@ -8,7 +8,14 @@ const { CartManagerMongo } = require('../Daos/Mongo/managers/cartManager.js')
 const router = Router()
 let productService = new ProductManagerMongo()
 
+router.get('/login', (req, res)=>{
+  res.render('login')
 
+} )
+router.get('/register', (req, res)=>{
+  res.render('register')
+
+} )
 
 router.get('/users', async (req, res)=>{
     try {
