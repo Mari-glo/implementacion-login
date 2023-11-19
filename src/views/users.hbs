@@ -6,11 +6,11 @@
     {{/each}}
     <center>
         {{#if hasPrevPage}}
-            <a href="/users?numPage={{prevPage}}"><button>Anterior</button></a>
+            <a href="/users?numPage={{prevPage}}"><button class="btn btn-dark">Anterior</button></a>
         {{/if}}
         <label>{{page}}</label>
         {{#if hasNextPage}}
-            <a href="/users?numPage={{nextPage}}"><button>Siguiente</button></a>
+            <a href="/users?numPage={{nextPage}}"><button class="btn btn-dark">Siguiente</button></a>
         {{/if}}
 
     </center>

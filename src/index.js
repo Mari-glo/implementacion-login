@@ -44,8 +44,8 @@ app.use(session({
      store: MongoStore.create({
          mongoUrl:"mongodb+srv://mariD:NOTpwuJtPwyuWFeU@cluster0.nn1ed1f.mongodb.net/ecommerce_mari?retryWrites=true&w=majority",
          mongoOptions: {   
-            useNewUrlParser: true,
-            useUnifiedTopology: true
+            // useNewUrlParser: true,
+            // useUnifiedTopology: true
         },
          ttl: 150000
 
